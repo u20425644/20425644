@@ -1,0 +1,56 @@
+﻿@model u20425644_HW03.Models.FileModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2> Media </h2>
+<h4> Description and file selection options </h4>
+
+<br />
+<br />
+
+<div class=" container-fluid">
+    <div class="row" style="border: 1px solid #ddd; background-color: #DCDCDC; ">
+        <div class="col-xl-6 col-lg-6 col-md-6">
+            <h4> Description </h4>
+            <p>
+                The system I am building allows the user to select on option on what type of file (e.g. document, image or video) they would like to upload on the system and the user
+                will be redirected to the file explorer and choose the file she/he wishes to upload thereafter the user will be able to download that file or delete it.
+            </p>
+        </div>
+
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="col-xl-6 col-lg-6 col-md-6">
+                <h4> Option Selection </h4>
+                <form method="post" action="">
+                    <table>
+                        <tr>
+                            <td>@Html.RadioButton("Media", "Document", false, new { id = "document" })Document</td>
+                        </tr>
+                        <tr>
+                            <td> @Html.RadioButton("Media", "Image", false, new { id = "image" }) Image</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.RadioButton("Media", "Video", false, new { id = "video" }) Video</td>
+                        </tr>
+
+                    </table>
+
+                    <div class="well-sm">
+                        <div class="form-horizontal">
+
+                            
+                            <div><input type="file" name="files" /></div>
+                            <br />
+                            <div><input type="submit" value="Upload" /></div>
+                            
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        }
+    </div>
+       
+</div>
